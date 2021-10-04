@@ -1,9 +1,11 @@
 public class Dichotomy {
 
     private static void dichotomy(double a, double b) {
-        double c = a;
+        double c = b;
+        int counter = 1;
         while ((b - a) >= Globals.EPSILON) {
             c = (a + b) / 2;
+            System.out.println(counter++ + "." + "f(c) == " + c);
             if (Globals.f(c) == 0.0) break;
             else if (Globals.f(c) * Globals.f(a) < 0) {
                 b = c;
@@ -16,8 +18,7 @@ public class Dichotomy {
     }
 
     public static void main(String... args) {
-        double a = -10, b = 50;
-        dichotomy(a, b);
+        dichotomy(Globals.RANGE_MIN, Globals.RANGE_MAX);
     }
 
 }
