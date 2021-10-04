@@ -3,7 +3,6 @@ import static java.lang.Math.pow;
 
 public class SimpleIteration {
 
-    private static final float EPSILON = 0.0001f;
     private static final double MAX = 50d;
 
     private static double getLambda(double x) {
@@ -15,8 +14,8 @@ public class SimpleIteration {
         double prev;
         do {
             prev = x;
-            x = x - lambda * (pow(x, 3) - 3 * pow(x, 2) - 14 * x - 8);
-        } while (abs(x - prev) >= EPSILON);
+            x = x - lambda * Globals.f(x);
+        } while (abs(x - prev) >= Globals.EPSILON);
 
         System.out.printf("The result is : %.8f", prev);
     }

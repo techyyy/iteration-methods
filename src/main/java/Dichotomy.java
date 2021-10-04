@@ -1,19 +1,11 @@
-import static java.lang.Math.pow;
-
 public class Dichotomy {
-
-    private static final float EPSILON = 0.0001f;
-
-    private static double f(double x) {
-        return pow(x, 3) - 3 * pow(x,2) - 14 * x - 8;
-    }
 
     private static void dichotomy(double a, double b) {
         double c = a;
-        while ((b - a) >= EPSILON) {
+        while ((b - a) >= Globals.EPSILON) {
             c = (a + b) / 2;
-            if (f(c) == 0.0) break;
-            else if (f(c) * f(a) < 0) {
+            if (Globals.f(c) == 0.0) break;
+            else if (Globals.f(c) * Globals.f(a) < 0) {
                 b = c;
             } else {
                 a = c;
